@@ -79,6 +79,10 @@ PACKAGES=(
     # Files
     thunar
     yazi
+
+    # nvim dependencies
+    tree-sitter-cli
+    neovim
 )
 
 paru -S --needed --noconfirm "${PACKAGES[@]}"
