@@ -28,7 +28,7 @@ read_only_style = "red"
 # ── Git ──────────────────────────────────────────────────
 [git_branch]
 format = "on [$symbol$branch]($style) "
-symbol = " "
+symbol = "⏎ "
 style = "bold purple"
 
 [git_status]
@@ -51,7 +51,7 @@ detect_files = ["requirements.txt", "pyproject.toml", "setup.py", ".python-versi
 
 [nodejs]
 format = "via [$symbol($version )]($style)"
-symbol = " "
+symbol = "E725 "
 style = "bold green"
 detect_files = ["package.json", ".nvmrc"]
 
@@ -62,12 +62,12 @@ style = "bold red"
 
 [golang]
 format = "via [$symbol($version )]($style)"
-symbol = " "
+symbol = "E725 "
 style = "bold cyan"
 
 [java]
 format = "via [$symbol($version )]($style)"
-symbol = " "
+symbol = "E725 "
 style = "bold red"
 
 # ── Command duration ─────────────────────────────────────
