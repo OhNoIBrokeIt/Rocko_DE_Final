@@ -188,6 +188,15 @@ success "Wallpaper directories created at:"
 echo "    ~/Pictures/Wallpapers/ultrawide  ← add 5120x1440 wallpapers here"
 echo "    ~/Pictures/Wallpapers/4k         ← add 3840x2160 wallpapers here"
 
+
+# ── Udev rules ───────────────────────────────────────────
+info "Installing udev rules..."
+sudo cp "$SCRIPT_DIR/udev/99-nuphy.rules" /etc/udev/rules.d/99-nuphy.rules
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+success "Udev rules installed — NuPhy Air75 HE WebHID access enabled"
+
+
 # ── Done ─────────────────────────────────────────────────
 echo ""
 echo -e "${GREEN}╔══════════════════════════════════════════╗${NC}"
