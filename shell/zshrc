@@ -1,2 +1,9 @@
 source /usr/share/cachyos-zsh-config/cachyos-config.zsh
-eval "$(starship init zsh)"
+
+# ── Custom prompt ─────────────────────────────────────────
+autoload -Uz vcs_info
+precmd() { vcs_info }
+zstyle ':vcs_info:git:*' formats ' %B%F{magenta} %b%f%b'
+setopt PROMPT_SUBST
+PROMPT='%B%F{magenta}%f%b %B%F{blue}%n%f%b %B%F{green} %1~%f%b${vcs_info_msg_0_} %F{white}%D{%H:%M}%f %B%F{red}[zsh]%f%b %B%F{red}❯%f%b '
+POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
