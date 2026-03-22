@@ -177,6 +177,9 @@ gsettings set org.gnome.desktop.interface monospace-font-name 'Maple Mono NF 11'
 gsettings set org.gnome.desktop.interface document-font-name 'Noto Sans 11'
 gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'
 gsettings set org.gnome.desktop.interface cursor-size 24
+# Fix xdg mime defaults
+xdg-mime default thunar.desktop inode/directory
+xdg-mime default thunar.desktop x-directory/normal
 
 success "GTK and font settings applied"
 
