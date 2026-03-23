@@ -72,6 +72,7 @@ PACKAGES=(
     satty
 
     # Theming
+    sddm
     adw-gtk-theme
     qt6ct
     papirus-icon-theme
@@ -218,16 +219,22 @@ fi
 
 success "Eza aliases added"
 
-# ── 12. SDDM ─────────────────────────────────────────────
-info "Deploying SDDM config..."
+# ── 12. SDDM — sddm-astronaut-theme (hyprland_kath) ─────
+info "Installing SDDM astronaut theme..."
 
-if [[ -d "$SCRIPT_DIR/sddm" ]]; then
-    sudo mkdir -p /etc/sddm.conf.d
-    sudo cp "$SCRIPT_DIR/sddm/sddm.conf" /etc/sddm.conf.d/rocko.conf
-    success "SDDM config deployed"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/keyitdev/sddm-astronaut-theme/master/setup.sh)"
+
+# Set hyprland_kath variant after setup
+METADATA=/usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop
+if [[ -f "$METADATA" ]]; then
+    sudo sed -i 's|^ConfigFile=.*|ConfigFile=Themes/hyprland_kath.conf|' "$METADATA"
+    success "SDDM astronaut-theme set to hyprland_kath"
 else
-    warn "No sddm/ directory in repo — skipping SDDM config"
+    warn "metadata.desktop not found — set theme variant manually"
 fi
+
+sudo systemctl enable sddm
+success "SDDM deployed"
 
 # ── 13. Udev rules ───────────────────────────────────────
 info "Installing udev rules..."
