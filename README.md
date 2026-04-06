@@ -1,6 +1,6 @@
 # Rocko_DE_Final
 
-**CachyOS + Hyprland + Noctalia** — William's personal desktop environment.
+**CachyOS + Hyprland + Noctalia** — 
 
 ---
 
